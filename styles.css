@@ -1,0 +1,245 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-1: #0f172a;
+  --bg-2: #1d4ed8;
+  --bg-3: #7c3aed;
+  --card: rgba(255, 255, 255, 0.16);
+  --card-border: rgba(255, 255, 255, 0.22);
+  --text: #f8fafc;
+  --muted: #dbeafe;
+  --accent: #f59e0b;
+  --accent-2: #fb7185;
+  --shadow: 0 20px 50px rgba(2, 6, 23, 0.35);
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+body {
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(251, 113, 133, 0.35), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.25), transparent 20%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.profile-card {
+  position: relative;
+  width: 100%;
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 28px;
+  border: 1px solid var(--card-border);
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(20px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 220px;
+  height: 220px;
+  background: rgba(245, 158, 11, 0.25);
+  top: -70px;
+  right: -50px;
+}
+
+.orb-2 {
+  width: 180px;
+  height: 180px;
+  background: rgba(251, 113, 133, 0.22);
+  bottom: -60px;
+  left: -40px;
+}
+
+.profile-avatar-group,
+.profile-content {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-avatar-group {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.profile-avatar {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 4px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.28);
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  color: #fde68a;
+  font-weight: 700;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  line-height: 1.05;
+}
+
+.profile-bio {
+  margin: 10px 0 0;
+  color: var(--muted);
+  max-width: 65ch;
+  font-size: 1rem;
+}
+
+.time-chip {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: fit-content;
+}
+
+.time-label {
+  font-size: 0.88rem;
+  color: #fde68a;
+  font-weight: 700;
+}
+
+.profile-time {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.profile-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.profile-socials a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.profile-socials a:hover {
+  transform: translateY(-2px);
+  opacity: 0.96;
+}
+
+.profile-socials a:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.profile-section {
+  padding: 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.profile-section h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.profile-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+.profile-list li + li {
+  margin-top: 8px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  .profile-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 34px;
+    gap: 30px;
+  }
+
+  .profile-avatar-group {
+    flex: 0 0 260px;
+    justify-content: center;
+  }
+
+  .profile-avatar {
+    width: 220px;
+    height: 220px;
+  }
+
+  .profile-content {
+    flex: 1;
+  }
+
+  .profile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
